@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "polosoft-site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "3000", "--directory", "F:/AI Agent Projects/PoloSoft Redesigned Websites"],
+      "port": 3000
+    }
+  ]
+}

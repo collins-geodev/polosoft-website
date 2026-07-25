@@ -1,0 +1,10 @@
+# Build artifact produced by makezip.py
+polosoft-website.zip
+
+# Local editor / tooling state
+.claude/settings.local.json
+
+# OS cruft
+Thumbs.db
+desktop.ini
+.DS_Store
