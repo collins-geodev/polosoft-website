@@ -326,4 +326,36 @@ document.addEventListener('DOMContentLoaded', function () {
     style.textContent = '@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }';
     document.head.appendChild(style);
 
+    // --- Survey123 Embed Auto-Resize ---
+    var surveyEmbed = document.getElementById('surveyEmbed');
+
+    if (surveyEmbed) {
+        var SURVEY_ORIGINS = ['https://survey123.arcgis.com', 'https://survey123.arcgis.app'];
+        var SURVEY_EVENTS = ['survey123:webform:formLoaded', 'survey123:onFormLoaded'];
+        var SURVEY_MAX_HEIGHT = 20000;
+
+        window.addEventListener('message', function (e) {
+            if (SURVEY_ORIGINS.indexOf(e.origin) === -1) return;
+            if (typeof e.data !== 'string') return;
+
+            var payload;
+            try {
+                payload = JSON.parse(e.data);
+            } catch (err) {
+                return;
+            }
+
+            if (!payload || SURVEY_EVENTS.indexOf(payload.event) === -1) return;
+
+            var height = parseInt(payload.contentHeight, 10);
+            if (!height || height < 1) return;
+
+            surveyEmbed.style.height = Math.min(height, SURVEY_MAX_HEIGHT) + 'px';
+            surveyEmbed.classList.add('is-sized');
+
+            if (typeof AOS !== 'undefined') AOS.refresh();
+        });
+    }
+
+
 });

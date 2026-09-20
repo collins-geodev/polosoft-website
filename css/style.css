@@ -2546,3 +2546,77 @@ img { max-width: 100%; display: block; }
 ::-webkit-scrollbar-thumb:hover {
     background: var(--green-primary);
 }
+
+/* --- Survey123 Embed --- */
+.survey {
+    background: var(--bg-secondary);
+}
+
+.survey-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 12px;
+}
+
+/* The form scrolls internally, so the frame gets a comfortable viewport-
+   relative height with a hard floor and ceiling. */
+.survey-embed {
+    position: relative;
+    width: 100%;
+    height: clamp(600px, 85vh, 880px);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f6f8fa;
+}
+
+/* If the form ever reports its real content height, JS sets an inline
+   height and this drops the clamp. */
+.survey-embed.is-sized {
+    height: auto;
+}
+
+.survey-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.survey-note {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.survey-note i {
+    color: var(--green-light);
+    margin-right: 6px;
+}
+
+.survey-note a {
+    color: var(--green-light);
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+}
+
+.survey-note a:hover {
+    border-bottom-color: var(--green-light);
+}
+
+@media (max-width: 768px) {
+    .survey-wrapper {
+        padding: 8px;
+    }
+
+    .survey-embed {
+        height: clamp(520px, 80vh, 700px);
+        border-radius: 8px;
+    }
+}
