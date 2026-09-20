@@ -633,10 +633,10 @@ img { max-width: 100%; display: block; }
 }
 
 .eco-hub-logo {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    filter: brightness(1.5);
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    object-fit: cover;
 }
 
 @keyframes hubGlow {
@@ -875,6 +875,7 @@ img { max-width: 100%; display: block; }
     .eco-hub-logo {
         width: 36px;
         height: 36px;
+        border-radius: 9px;
     }
 
     .eco-node {
